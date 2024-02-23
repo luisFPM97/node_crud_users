@@ -19,7 +19,7 @@ return res.status(201).json(user)
 });
 const getOneUser = catchError(async(req, res) => {
     const { id } = req.params;
-    const user = await User.findByPk({ where: {id: id}})
+    const user = await User.findOne({ where: {id: id}});
 return res.json(user)
 });
 const removeUser = catchError(async(req, res) => {
