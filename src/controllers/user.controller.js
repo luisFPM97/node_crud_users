@@ -18,7 +18,8 @@ const createUser = catchError(async(req, res) => {
 return res.status(201).json(user)
 });
 const getOneUser = catchError(async(req, res) => {
-    const user = await User.findByPk(1)
+    const { id } = req.params;
+    const user = await User.findByPk({ where: {id: id}})
 return res.json(user)
 });
 const removeUser = catchError(async(req, res) => {
